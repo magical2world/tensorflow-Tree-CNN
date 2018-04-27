@@ -97,7 +97,7 @@ def fine_tune(graph_name,num_class,branch_class,g):
             saver.restore(sess, graph_name+'/branch.module-3502')
 
             dataset=data_process()
-            for epoch in range(1):
+            for epoch in range(5):
                 x_batch,y_batch=dataset.fine_tune_next_batch(100,branch_class)
                 for step in range(len(x_batch)):
                     feed_dict={image:x_batch[step],target:y_batch[step],keep_prob:[0.25,0.5],train_mode:True}
